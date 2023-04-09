@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/Logo.svg";
 import menu from "../assets/menu.svg";
 import css from "./nav.css";
@@ -8,17 +9,17 @@ function Nav() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
-    <nav className="navigation">
-      <a href="/">
+    <nav className="navigation container">
+      <Link to="/">
         <img src={logo} alt="Little Lemon logo" />
-      </a>
+      </Link>
       <button
         className="hamburger"
         onClick={() => {
           setIsNavExpanded(!isNavExpanded);
         }}
       >
-        <img src={menu} />
+        <img src={menu} className="hamburger-icon" />
       </button>
       <div
         className={
@@ -27,22 +28,22 @@ function Nav() {
       >
         <ul>
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="/menu">Menu</a>
+            <Link to="/menu">Menu</Link>
           </li>
           <li>
-            <a href="/reservations"> Reservations</a>
+            <Link to="/reservations"> Reservations</Link>
           </li>
           <li>
-            <a href="/order-online">Order online</a>
+            <Link to="/order-online">Order online</Link>
           </li>
           <li>
-            <a href="/login">Login</a>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>

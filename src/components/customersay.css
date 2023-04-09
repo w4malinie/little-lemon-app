@@ -1,0 +1,45 @@
+.customers-say-container {
+    background-color: var(--green);
+}
+
+.customers-say {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 48px ;
+    color: #ffffff;
+}
+
+.testimonial-card {
+    background-color: #ffffff;
+    max-width: 310px;
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 24px;
+    color: var(--darkgray);
+    text-align: center;
+}
+
+.testimonial-card p {
+    margin-top: 16px;
+}
+
+.testimonial-img {
+    border-radius: 4px;
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+    border: 2px solid var(--gray);
+}
+
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.rating {
+    margin-bottom: 16px;
+}

@@ -3,6 +3,8 @@
   --yellow: #F4CE14;
   --gray: #EDEFEE;
   --darkgray: #333333;
+  --salmon: #EE9972;
+  --darksalmon: #d3774c;
 }
 
 * {
@@ -17,3 +19,10 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  min-height: 100%;
+}
+
+img {
+  max-width: 100%;
+}
