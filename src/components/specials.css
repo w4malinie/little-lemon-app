@@ -71,7 +71,6 @@
 
     .special-card {
         width: 250px;
-       
     }
 
 }
@@ -83,12 +82,7 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
-        .special-card {
-            width: 200px;
-           
-        }
         .specials-cards::-webkit-scrollbar {
             display: none;
           }
-    
     }
