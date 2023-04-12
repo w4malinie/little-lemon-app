@@ -8,7 +8,7 @@ button {
     font-family: 'Karla';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 1.8rem; 
 }
 
 .primary {
@@ -16,8 +16,6 @@ button {
     border: none;
     width: 60%;
 }
-
-
 
 .primary:hover {
     background-color: var(--salmon);
@@ -54,7 +52,7 @@ button {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     .primary {
         width: 100%;
     }

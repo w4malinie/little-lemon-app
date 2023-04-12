@@ -43,7 +43,7 @@
     cursor: pointer;
     position: absolute;
     top: 50%;
-    right: 25px;
+    right: 16px;
     transform: translateY(-50%);
     display: none;
     background-color: white;
@@ -55,7 +55,7 @@
 
 
 
-  @media (max-width: 768px) {
+  @media (max-width: 856px) {
     .hamburger {
     display: block;
         }
@@ -63,7 +63,7 @@
     .navigation-menu ul {
       display: none;
       position: absolute;
-      top: 68px;
+      top: 56px;
       left: 0;
       flex-direction: column;
       width: 100%;

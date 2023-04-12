@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/Logo.svg";
 import css from "./footer.css";
 
@@ -8,9 +9,9 @@ function Footer() {
       <div className="container">
         <div className="footer-container ">
           <div className="footer-logo">
-            <a href="/">
+            <Link to="/">
               <img src={logo} alt="Little Lemon logo" />
-            </a>
+            </Link>
           </div>
           <div className="footer-section-wrapper">
             <div className="footer-section">
@@ -29,22 +30,22 @@ function Footer() {
               <h5>Links</h5>
               <ul>
                 <li>
-                  <a href="/">Home</a>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
-                  <a href="/about">About</a>
+                  <Link to="/about">About</Link>
                 </li>
                 <li>
-                  <a href="/menu">Menu</a>
+                  <Link to="/menu">Menu</Link>
                 </li>
                 <li>
-                  <a href="/reservations"> Reservations</a>
+                  <Link to="/reservations"> Reservations</Link>
                 </li>
                 <li>
-                  <a href="/order-online">Order online</a>
+                  <Link to="/order-online">Order online</Link>
                 </li>
                 <li>
-                  <a href="/login">Login</a>
+                  <Link to="/login">Login</Link>
                 </li>
               </ul>
             </div>
@@ -52,13 +53,13 @@ function Footer() {
               <h5>Follow us</h5>
               <ul>
                 <li>
-                  <a href="https://www.facebook.com">Facebook</a>
+                  <Link to="https://www.facebook.com">Facebook</Link>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com">Instagram</a>
+                  <Link to="https://www.instagram.com">Instagram</Link>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com">Linkedin</a>
+                  <Link to="https://www.linkedin.com">Linkedin</Link>
                 </li>
               </ul>
             </div>

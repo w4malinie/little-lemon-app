@@ -1,25 +1,29 @@
 import React from "react";
 import CallToDelivery from "./CallToDelivery.js";
-import brushetta from "../assets/bruchetta.svg";
+import { Link } from "react-router-dom";
 import styles from "./specials.css";
 
-function Special() {
+function truncate(str = "", maxlength) {
+  return str.length > maxlength ? str.slice(0, maxlength - 1) + "…" : str;
+}
+
+function Special(props) {
+  const { description } = props;
+  const descriptioTruincated = truncate(description, 110);
+
   return (
     <div className="special-card">
-      <img src={brushetta} alt="" className="card-img" />
+      <img src={props.img} alt={props.title} className="card-img" />
       <div className="card-text">
         <div className="card-info">
-          <h6>Bruschetta</h6>
-          <h6 className="price">$ 9.99</h6>
+          <h6>{props.title}</h6>
+          <h6 className="price">$ {props.price}</h6>
         </div>
         <div className="card-details">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-            dolore expedita, suscipit qui, ad inventore nisi nulla maxime
-            perspiciatis nesciunt laboriosam excepturi aperiam iure natus. Rem
-            suscipit quos minima praesentium.
-          </p>
-          <CallToDelivery />
+          <p>{descriptioTruincated}</p>
+          <Link to="/order-online">
+            <CallToDelivery />
+          </Link>
         </div>
       </div>
     </div>

@@ -1,22 +1,32 @@
 import React from "react";
 import CallToMenu from "./CallToMenu";
-
+import { Link } from "react-router-dom";
 import styles from "./specials.css";
 import Special from "./Special";
+import specialData from "../data/specialsData";
 
 function Specials() {
+  const specialElements = specialData.map((special) => {
+    return (
+      <Special
+        img={special.img}
+        title={special.title}
+        price={special.price}
+        description={special.description}
+      />
+    );
+  });
+
   return (
     <div className="container">
       <div className="specials-container">
         <div className="specials-info">
           <h4>This week specials</h4>
-          <CallToMenu />
+          <Link to="/menu">
+            <CallToMenu />
+          </Link>
         </div>
-        <div className="specials-cards">
-          <Special />
-          <Special />
-          <Special />
-        </div>
+        <div className="specials-cards">{specialElements}</div>
       </div>
     </div>
   );

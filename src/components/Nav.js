@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/Logo.svg";
 import menu from "../assets/menu.svg";
 import css from "./nav.css";
@@ -8,11 +8,15 @@ import css from "./nav.css";
 function Nav() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
+  const getActiveStyle = ({ isActive }) => ({
+    fontWeight: isActive ? "bold" : "normal",
+  });
+
   return (
     <nav className="navigation container">
-      <Link to="/">
+      <NavLink to="/">
         <img src={logo} alt="Little Lemon logo" />
-      </Link>
+      </NavLink>
       <button
         className="hamburger"
         onClick={() => {
@@ -28,22 +32,34 @@ function Nav() {
       >
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/" style={getActiveStyle}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about" style={getActiveStyle}>
+              About
+            </NavLink>
           </li>
           <li>
-            <Link to="/menu">Menu</Link>
+            <NavLink to="/menu" style={getActiveStyle}>
+              Menu
+            </NavLink>
           </li>
           <li>
-            <Link to="/reservations"> Reservations</Link>
+            <NavLink to="/reservations" style={getActiveStyle}>
+              Reservations
+            </NavLink>
           </li>
           <li>
-            <Link to="/order-online">Order online</Link>
+            <NavLink to="/order-online" style={getActiveStyle}>
+              Order online
+            </NavLink>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <NavLink to="/login" style={getActiveStyle}>
+              Login
+            </NavLink>
           </li>
         </ul>
       </div>

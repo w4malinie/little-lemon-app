@@ -10,14 +10,21 @@
     padding-top: 48px;
     padding-bottom: 48px ;
     color: #ffffff;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.customers-say h4 {
+        margin-bottom: 24px;
+
 }
 
 .testimonial-card {
     background-color: #ffffff;
-    max-width: 310px;
+    max-width: 350px;
     padding: 24px;
     border-radius: 8px;
-    margin-top: 24px;
+    margin-top: 0px;
     color: var(--darkgray);
     text-align: center;
 }
@@ -27,7 +34,7 @@
 }
 
 .testimonial-img {
-    border-radius: 4px;
+    border-radius: 8px;
     height: 120px;
     width: 100%;
     object-fit: cover;
@@ -37,9 +44,20 @@
 .testimonials {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    justify-content: center;
+    gap: 20px;
 }
 
 .rating {
     margin-bottom: 16px;
+}
+
+@media (max-width: 865px) {
+    .testimonial-card {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        max-width: 100%;
+
+    }
 }

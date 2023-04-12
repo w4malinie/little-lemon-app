@@ -1,5 +1,6 @@
 import React from "react";
 import CallToAction from "./CallToAction";
+import { Link } from "react-router-dom";
 import heroIMG from "../assets/restaurant-chefB.jpg";
 import styles from "./header.css";
 
@@ -17,7 +18,9 @@ function Header() {
               porro dolor, dolorem atque autem, iure praesentium sunt molestiae
               ea beatae omnis nulla!
             </h3>
-            <CallToAction />
+            <Link to="/reservations">
+              <CallToAction />
+            </Link>
           </div>
           <div className="hero-img">
             <img src={heroIMG} alt="Little Lemon Chef" className="header-img" />
