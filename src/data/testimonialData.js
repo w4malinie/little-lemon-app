@@ -4,6 +4,7 @@ import chef from "../assets/restaurant-chefB.jpg";
 
 export default [
   {
+    id: 1,
     rating: 5,
     img: food,
     testimonial:
@@ -11,6 +12,7 @@ export default [
     user: "Joe",
   },
   {
+    id: 2,
     rating: 4,
     img: restaurant,
     testimonial:
@@ -18,6 +20,7 @@ export default [
     user: "Anna",
   },
   {
+    id: 3,
     rating: 5,
     img: chef,
     testimonial:

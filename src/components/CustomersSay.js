@@ -8,6 +8,7 @@ function CustomersSay() {
   const testimonialElements = testimonialData.map((testimonial) => {
     return (
       <CustomerSayTestimonial
+        key={testimonial.id}
         rating={testimonial.rating}
         img={testimonial.img}
         testimonial={testimonial.testimonial}

@@ -9,6 +9,7 @@ function Specials() {
   const specialElements = specialData.map((special) => {
     return (
       <Special
+        key={special.id}
         img={special.img}
         title={special.title}
         price={special.price}
