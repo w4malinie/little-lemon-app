@@ -1,12 +1,14 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import styles from "./booking.css";
+
+const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
 function BookingForm() {
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState(availableTimes);
   const [guests, setGuests] = useState("");
-  const [occasion, setOccasion] = useState("birthday");
+  const [occasion, setOccasion] = useState("");
 
   const getIsFormValid = () => {
     return date && time && guests;
@@ -14,9 +16,9 @@ function BookingForm() {
 
   const clearForm = () => {
     setDate("");
-    setTime("");
+    setTime(availableTimes[0]);
     setGuests("");
-    setOccasion("birthday");
+    setOccasion("");
   };
 
   const handleSubmit = (e) => {
@@ -46,12 +48,11 @@ function BookingForm() {
         value={time}
         onChange={(e) => setTime(e.target.value)}
       >
-        <option value="17">17:00</option>
-        <option value="18">18:00</option>
-        <option value="19">19:00</option>
-        <option value="20">20:00</option>
-        <option value="21">21:00</option>
-        <option value="22">22:00</option>
+        {availableTimes.map((value) => (
+          <option value={value} key={value}>
+            {value}
+          </option>
+        ))}
       </select>
 
       <label htmlFor="guests">
