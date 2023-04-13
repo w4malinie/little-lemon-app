@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./call-to-action.css";
 
-function CallToAction() {
-  return <button className="primary">Book a table</button>;
+function CallToAction(props) {
+  return <button className="primary">{props.cta}</button>;
 }
 
 export default CallToAction;

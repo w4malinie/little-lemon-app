@@ -18,8 +18,8 @@ function Header() {
               porro dolor, dolorem atque autem, iure praesentium sunt molestiae
               ea beatae omnis nulla!
             </h3>
-            <Link to="/reservations">
-              <CallToAction />
+            <Link to="/booking">
+              <CallToAction cta="Book a table" />
             </Link>
           </div>
           <div className="hero-img">

@@ -17,9 +17,14 @@ function Footer() {
             <div className="footer-section">
               <h5>Contact</h5>
               <p>
-                +1 202-918-2132
+                <a href="tel:202-918-2132" className="tel">
+                  +1 202-918-2132
+                </a>
                 <br />
-                little@lemon.com
+                <a href="mailto:little@lemon.com" className="mail">
+                  little@lemon.com
+                </a>
+                <br />
                 <br />
                 5819 N ROCKWELL ST
                 <br />
@@ -39,7 +44,7 @@ function Footer() {
                   <Link to="/menu">Menu</Link>
                 </li>
                 <li>
-                  <Link to="/reservations"> Reservations</Link>
+                  <Link to="/booking"> Reservations</Link>
                 </li>
                 <li>
                   <Link to="/order-online">Order online</Link>

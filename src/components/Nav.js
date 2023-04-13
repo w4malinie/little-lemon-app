@@ -47,7 +47,7 @@ function Nav() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/reservations" style={getActiveStyle}>
+            <NavLink to="/booking" style={getActiveStyle}>
               Reservations
             </NavLink>
           </li>

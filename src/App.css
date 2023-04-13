@@ -91,3 +91,9 @@ a:hover, a:active {
   margin-left: auto;
   margin-right: auto;
 }
+
+.mail, .tel {
+  font-weight: 500;
+  color: #000000;
+}
+
