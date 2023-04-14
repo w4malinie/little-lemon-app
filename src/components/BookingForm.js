@@ -2,17 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 import styles from "./booking.css";
 
-const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
-function BookingForm() {
+function BookingForm({ time, setTime, times = [], dispatch, ...props }) {
   const [date, setDate] = useState("");
-  const [time, setTime] = useState(availableTimes);
   const [guests, setGuests] = useState("");
   const [occasion, setOccasion] = useState("");
 
   const getIsFormValid = () => {
     return date && time && guests;
   };
+
+  // @FIXME
+  const availableTimes = times;
 
   const clearForm = () => {
     setDate("");
@@ -28,7 +28,7 @@ function BookingForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid="form">
       <label htmlFor="res-date">
         Choose date<sup>*</sup>{" "}
       </label>
@@ -38,6 +38,7 @@ function BookingForm() {
         value={date}
         onChange={(e) => {
           setDate(e.target.value);
+          dispatch(e.target.value);
         }}
       />
       <label htmlFor="res-time">
