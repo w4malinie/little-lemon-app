@@ -1,22 +1,29 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./Homepage";
-import BookingPage from "./BookingPage";
-import { useState, useReducer } from "react";
-
-const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+import BookingPage from "./Bookings/BookingPage";
+import { useState, useReducer, useEffect } from "react";
+import ConfirmedBooking from "./Bookings/ConfirmedBooking";
 
 export function initializeTimes() {
-  return availableTimes;
+  return window.fetchAPI(new Date());
 }
 
-export function updateTimes(state, action) {
-  return ["06:00", "20:45"];
+export function updateTimes(state, payload) {
+  if (payload) {
+    const newDate = new Date(payload);
+    return window.fetchAPI(newDate);
+  }
+  return window.fetchAPI(new Date());
+}
+
+export function submitForm(formData) {
+  return window.submitAPI(formData);
 }
 
 function Main() {
-  const [time, setTime] = useState(availableTimes);
-  const [times, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [time, setTime] = useState("");
+  const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
   return (
     <main>
@@ -26,13 +33,15 @@ function Main() {
           path="/booking"
           element={
             <BookingPage
+              submitForm={submitForm}
               time={time}
               setTime={setTime}
-              times={times}
+              availableTimes={availableTimes}
               dispatch={dispatch}
             />
           }
         ></Route>
+        <Route path="/confirmation" element={<ConfirmedBooking />}></Route>
       </Routes>
     </main>
   );

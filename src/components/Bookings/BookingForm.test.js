@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import BookingForm from "./BookingForm";
-import { initializeTimes } from "./Main";
-import { updateTimes } from "./Main";
+import { initializeTimes } from "../Main";
+import { updateTimes } from "../Main";
 
 test("Renders the BookingForm heading", () => {
   render(<BookingForm />);

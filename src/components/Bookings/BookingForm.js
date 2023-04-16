@@ -1,31 +1,44 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./booking.css";
 
-function BookingForm({ time, setTime, times = [], dispatch, ...props }) {
+function BookingForm({
+  time,
+  setTime,
+  availableTimes = [],
+  dispatch,
+  submitForm,
+}) {
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState("");
   const [occasion, setOccasion] = useState("");
 
   const getIsFormValid = () => {
+    console.log(date, time, guests);
     return date && time && guests;
   };
-
-  // @FIXME
-  const availableTimes = times;
+  const navigate = useNavigate();
 
   const clearForm = () => {
     setDate("");
-    setTime(availableTimes[0]);
+    setTime("");
     setGuests("");
     setOccasion("");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Table reserved!");
-    clearForm();
+    const result = submitForm({ date, time, guests, occasion });
+    if (result) {
+      clearForm();
+      navigate("/confirmation");
+    }
   };
+
+  useEffect(() => {
+    dispatch(date);
+  }, [date]);
 
   return (
     <form onSubmit={handleSubmit} data-testid="form">
@@ -47,7 +60,9 @@ function BookingForm({ time, setTime, times = [], dispatch, ...props }) {
       <select
         id="res-time "
         value={time}
-        onChange={(e) => setTime(e.target.value)}
+        onChange={(e) => {
+          setTime(e.target.value);
+        }}
       >
         {availableTimes.map((value) => (
           <option value={value} key={value}>
