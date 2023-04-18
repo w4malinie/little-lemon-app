@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 import logo from "../assets/Logo.svg";
 import menu from "../assets/menu.svg";
 import css from "./nav.css";
@@ -47,9 +48,9 @@ function Nav() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/booking" style={getActiveStyle}>
+            <NavHashLink smooth to="/booking#booking" style={getActiveStyle}>
               Reservations
-            </NavLink>
+            </NavHashLink>
           </li>
           <li>
             <NavLink to="/order-online" style={getActiveStyle}>

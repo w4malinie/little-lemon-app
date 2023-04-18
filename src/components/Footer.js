@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/Logo.svg";
+import { HashLink } from "react-router-hash-link";
 import css from "./footer.css";
 
 function Footer() {
@@ -24,8 +25,8 @@ function Footer() {
                 <a href="mailto:little@lemon.com" className="mail">
                   little@lemon.com
                 </a>
-                <br />
-                <br />
+              </p>
+              <p>
                 5819 N ROCKWELL ST
                 <br />
                 CHICAGO IL 60659-4985
@@ -44,7 +45,10 @@ function Footer() {
                   <Link to="/menu">Menu</Link>
                 </li>
                 <li>
-                  <Link to="/booking"> Reservations</Link>
+                  <HashLink smooth to="/booking#booking">
+                    {" "}
+                    Reservations
+                  </HashLink>
                 </li>
                 <li>
                   <Link to="/order-online">Order online</Link>

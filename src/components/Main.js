@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./Homepage";
 import BookingPage from "./Bookings/BookingPage";
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer } from "react";
 import ConfirmedBooking from "./Bookings/ConfirmedBooking";
 
 export function initializeTimes() {

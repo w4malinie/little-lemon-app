@@ -6,7 +6,7 @@ function BookingPage({ setTime, time, availableTimes, dispatch, submitForm }) {
     <>
       <div className="container">
         <div className="booking-container">
-          <div className="booking-text">
+          <div className="booking-text" id="booking">
             <h2>Book a table</h2>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur

@@ -42,10 +42,14 @@
     padding: 0.5rem;
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 40%;
     right: 16px;
     transform: translateY(-50%);
     display: none;
+    background-color: white;
+  }
+
+  .hamburger:hover {
     background-color: white;
   }
 
@@ -67,7 +71,7 @@
       left: 0;
       flex-direction: column;
       width: 100%;
-      height: calc(100vh - 77px);
+      height: calc(50vh - 60px);
       background-color: white;
       border-top: 1px solid var(--gray);
     }

@@ -25,6 +25,8 @@ input {
     padding: 16px 8px;
 }
 
+
+
 select {
     height: 4rem;;
     margin-bottom: 16px;
@@ -48,9 +50,7 @@ button {
     margin-top: 8px;
 }
 
-button:disabled {
-    background-color: var(--gray);
-}
+
 
 
 
@@ -59,9 +59,7 @@ button:hover {
         cursor: pointer;
 }
 
-button[disabled], button[disabled]:hover, button[disabled]:focus, button[disabled]:active {
-    background-color: var(--gray);
-  }
+
 
 .booking-container {
     margin: 64px 16px;
@@ -96,7 +94,7 @@ button[disabled], button[disabled]:hover, button[disabled]:focus, button[disable
 }
 
 sup {
-    color: var(--darksalmon);
+    color: #ff0000;
     font-size: 1.6rem;
 }
 
@@ -105,11 +103,10 @@ sup {
         width: 90vw;
         gap: 4px;
         padding: 24px;
-        
     }
 
     .booking-container {
-        margin: 32px 16px;
+        margin: 16px 16px;
         gap: 24px;
     }
 
@@ -118,3 +115,10 @@ sup {
      }
 }
 
+.field-error {
+   color: #ff0000; 
+   font-size: 1.2rem;
+   font-weight: 500;
+   margin-bottom: 16px;
+   margin-top: -16px;
+}
