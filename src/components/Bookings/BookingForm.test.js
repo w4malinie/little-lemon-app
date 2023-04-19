@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, getByText } from "@testing-library/react";
 import BookingForm from "./BookingForm";
 import { initializeTimes } from "../utils/times";
 import { updateTimes } from "../utils/times";
@@ -29,15 +29,69 @@ test("Renders the BookingForm heading", () => {
   expect(labelElement).toBeInTheDocument();
 });
 
-xtest("Form can be submitted by the user", () => {
-  const submitForm = jest.fn();
-  const { getByTestId } = render(
-    <BrowserRouter>
-      <BookingForm submitForm={submitForm} />
-    </BrowserRouter>
-  );
-  fireEvent.submit(getByTestId("form"));
-  expect(submitForm).toHaveBeenCalled();
+describe("BookingForm submit", () => {
+  it("shoud call submitForm function", () => {
+    const submitForm = jest.fn();
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <BookingForm submitForm={submitForm} />
+      </BrowserRouter>
+    );
+    fireEvent.submit(getByTestId("form"));
+    expect(submitForm).toHaveBeenCalled();
+  });
+  it("should be disabled on entry", () => {
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <BookingForm submitForm={() => {}} />
+      </BrowserRouter>
+    );
+    const submitButton = screen.getByText("Make reservation");
+    const timeInput = screen.getByText("Make reservation");
+
+    expect(submitButton).toBeDisabled();
+    expect(timeInput).toBeDisabled();
+  });
+  it("should be enabled after filling the form fields", () => {
+    const dispachSpy = jest.fn();
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <BookingForm submitForm={() => {}} dispatch={dispachSpy} />
+      </BrowserRouter>
+    );
+
+    const dateInput = screen.getByTestId("res-date");
+    const submitButton = screen.getByText("Make reservation");
+    const timeInput = screen.getByText("Make reservation");
+
+    fireEvent.mouseDown(dateInput);
+    fireEvent.change(dateInput, { target: { value: "2023-04-03" } });
+
+    expect(timeInput).toBeEnabled();
+    expect(submitButton).toBeEnabled();
+    expect(dispachSpy).toHaveBeenCalled();
+  });
+
+  it("should prompt the user about missing guests field", () => {
+    const { getByTestId } = render(
+      <BrowserRouter>
+        <BookingForm submitForm={() => true} dispatch={() => {}} />
+      </BrowserRouter>
+    );
+
+    const dateInput = screen.getByTestId("res-date");
+
+    fireEvent.mouseDown(dateInput);
+    fireEvent.change(dateInput, { target: { value: "2023-04-03" } });
+
+    const submitButton = screen.getByText("Make reservation");
+    fireEvent.mouseDown(submitButton);
+
+    const warning = screen.getByText(
+      "A table can't be reserved for less than one person"
+    );
+    expect(warning).toBeInTheDocument();
+  });
 });
 
 test("Validates that function returns array of available hours", () => {

@@ -21,9 +21,9 @@ function BookingForm({
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState({
     value: "0",
-    isTouched: false,
   });
   const [occasion, setOccasion] = useState("");
+  const [wasSubmitted, setWasSubmitted] = useState(false);
 
   const getIsFormValid = () => {
     return date && guests;
@@ -54,13 +54,18 @@ function BookingForm({
   }, [date]);
 
   return (
-    <form onSubmit={handleSubmit} data-testid="form" aria-label="Booking table">
+    <form
+      onSubmit={handleSubmit}
+      data-testid="form"
+      aria-label="Booking  atable"
+    >
       <label htmlFor="res-date">
         Choose date<sup>*</sup>{" "}
       </label>
       <input
         type="date"
         id="res-date"
+        data-testid="res-date"
         value={date}
         onChange={(e) => {
           setDate(e.target.value);
@@ -69,6 +74,7 @@ function BookingForm({
         required
         aria-label="Choose a date"
         autoFocus
+        aria-required="true"
       />
       <label htmlFor="res-time">
         Select time<sup>*</sup>{" "}
@@ -82,6 +88,7 @@ function BookingForm({
         required
         disabled={!date}
         aria-label="Select time"
+        aria-required="true"
       >
         {availableTimes.map((value) => (
           <option value={value} key={value}>
@@ -101,15 +108,15 @@ function BookingForm({
         id="guests"
         value={guests.value}
         onChange={(e) => {
-          setGuests({ value: e.target.value, isTouched: true });
+          setGuests({ value: e.target.value });
         }}
         required
-        minlength="1"
+        minLength="1"
         aria-label="Number of guests"
+        aria-required="true"
       />
-      {guests.isTouched && Number(guests.value) < 1 ? (
-        <GuestsErrorMessage />
-      ) : null}
+
+      {wasSubmitted && Number(guests.value) < 1 ? <GuestsErrorMessage /> : null}
 
       <label htmlFor="occasion">Select occasion</label>
       <select
@@ -123,7 +130,11 @@ function BookingForm({
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      <button type="submit" disabled={!getIsFormValid()}>
+      <button
+        type="submit"
+        disabled={!getIsFormValid()}
+        onClick={() => setWasSubmitted(true)}
+      >
         Make reservation
       </button>
     </form>
