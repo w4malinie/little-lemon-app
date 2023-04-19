@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import BookingForm from "./BookingForm";
-import { initializeTimes } from "../Main";
-import { updateTimes } from "../Main";
+import { initializeTimes } from "../utils/times";
+import { updateTimes } from "../utils/times";
 import { BrowserRouter } from "react-router-dom";
 
 let windowSpy;
@@ -53,6 +53,36 @@ test("Validates that function returns array of available hours", () => {
   expect(result.length).toBe(3);
 });
 
-xtest("Validates that function includes a pre-selected date as part of the dispatch date", () => {
-  const result = updateTimes();
+describe("updateTimes", () => {
+  const expectedDates = ["17:00", "17:30", "18:00"];
+
+  describe("when there is paylod", () => {
+    it("should return date from payload", () => {
+      windowSpy.mockImplementation(() => {
+        return {
+          fetchAPI() {
+            return expectedDates;
+          },
+        };
+      });
+
+      const result = updateTimes(undefined, "2023-04-16");
+      expect(result).toBe(expectedDates);
+    });
+  });
+
+  describe("when there is no payload", () => {
+    it("should return current date", () => {
+      windowSpy.mockImplementation(() => {
+        return {
+          fetchAPI() {
+            return expectedDates;
+          },
+        };
+      });
+
+      const result = updateTimes();
+      expect(result).toBe(expectedDates);
+    });
+  });
 });
