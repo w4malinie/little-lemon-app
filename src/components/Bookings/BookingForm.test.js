@@ -1,8 +1,15 @@
-import { render, screen, fireEvent, getByText } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  getByText,
+  waitFor,
+} from "@testing-library/react";
 import BookingForm from "./BookingForm";
 import { initializeTimes } from "./utils/times";
 import { updateTimes } from "./utils/times";
 import { BrowserRouter } from "react-router-dom";
+import { act } from "react-dom/test-utils";
 
 let windowSpy;
 
@@ -75,22 +82,21 @@ describe("BookingForm submit", () => {
   it("should prompt the user about missing guests field", () => {
     const { getByTestId } = render(
       <BrowserRouter>
-        <BookingForm submitForm={() => true} dispatch={() => {}} />
+        <BookingForm submitForm={() => false} dispatch={() => {}} />
       </BrowserRouter>
     );
 
-    const dateInput = screen.getByTestId("res-date");
+    const warningText = "A table can't be reserved for less than one person";
+    const dateInput = getByTestId("res-date");
 
     fireEvent.mouseDown(dateInput);
     fireEvent.change(dateInput, { target: { value: "2023-04-03" } });
 
-    const submitButton = screen.getByText("Make reservation");
-    fireEvent.mouseDown(submitButton);
+    act(() => {
+      getByTestId("form").submit();
+    });
 
-    const warning = screen.getByText(
-      "A table can't be reserved for less than one person"
-    );
-    expect(warning).toBeInTheDocument();
+    expect(screen.getByText(warningText)).toBeInTheDocument();
   });
 });
 

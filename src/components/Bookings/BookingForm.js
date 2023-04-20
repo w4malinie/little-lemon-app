@@ -40,6 +40,9 @@ function BookingForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setWasSubmitted(true);
+
     const result = submitForm({ date, time, guests, occasion });
     if (result) {
       clearForm();
@@ -130,11 +133,7 @@ function BookingForm({
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      <button
-        type="submit"
-        disabled={!getIsFormValid()}
-        onClick={() => setWasSubmitted(true)}
-      >
+      <button type="submit" disabled={!getIsFormValid()}>
         Make reservation
       </button>
     </form>

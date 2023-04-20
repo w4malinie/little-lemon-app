@@ -12,7 +12,7 @@ function Special(props) {
   const descriptionTruincated = truncate(description, 110);
 
   return (
-    <div className="special-card" key={props.key}>
+    <article className="special-card" key={props.key}>
       <img src={props.img} alt={props.title} className="card-img" />
       <div className="card-text">
         <div className="card-info">
@@ -26,7 +26,7 @@ function Special(props) {
           </Link>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 
