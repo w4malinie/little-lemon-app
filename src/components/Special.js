@@ -1,5 +1,5 @@
 import React from "react";
-import CallToDelivery from "./CallToDelivery.js";
+import CallToDelivery from "./Buttons/CallToDelivery.js";
 import { Link } from "react-router-dom";
 import styles from "./specials.css";
 
@@ -9,10 +9,10 @@ function truncate(str = "", maxlength) {
 
 function Special(props) {
   const { description } = props;
-  const descriptioTruincated = truncate(description, 110);
+  const descriptionTruincated = truncate(description, 110);
 
   return (
-    <div className="special-card">
+    <div className="special-card" key={props.key}>
       <img src={props.img} alt={props.title} className="card-img" />
       <div className="card-text">
         <div className="card-info">
@@ -20,8 +20,8 @@ function Special(props) {
           <h6 className="price">$ {props.price}</h6>
         </div>
         <div className="card-details">
-          <p>{descriptioTruincated}</p>
-          <Link to="/order-online">
+          <p>{descriptionTruincated}</p>
+          <Link to="/order-online" aria-label={props.title}>
             <CallToDelivery />
           </Link>
         </div>

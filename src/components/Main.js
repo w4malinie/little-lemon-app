@@ -4,26 +4,13 @@ import Homepage from "./Homepage";
 import BookingPage from "./Bookings/BookingPage";
 import { useState, useReducer } from "react";
 import ConfirmedBooking from "./Bookings/ConfirmedBooking";
-
-export function initializeTimes() {
-  return window.fetchAPI(new Date());
-}
-
-export function updateTimes(state, payload) {
-  if (payload) {
-    const newDate = new Date(payload);
-    return window.fetchAPI(newDate);
-  }
-  return window.fetchAPI(new Date());
-}
-
-export function submitForm(formData) {
-  return window.submitAPI(formData);
-}
+import { initializeTimes, updateTimes } from "./Bookings/utils/times";
 
 function Main() {
   const [time, setTime] = useState("");
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
+
+  const submitForm = (formData) => window.submitAPI(formData);
 
   return (
     <main>

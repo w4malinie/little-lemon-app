@@ -9,14 +9,10 @@ import css from "./nav.css";
 function Nav() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
-  const getActiveStyle = ({ isActive }) => ({
-    fontWeight: isActive ? "bold" : "normal",
-  });
-
   return (
-    <nav className="navigation container">
+    <nav className="navigation container" aria-label="primary">
       <NavLink to="/">
-        <img src={logo} alt="Little Lemon logo" />
+        <img src={logo} alt="Little Lemon logo" aria-label="On Click" />
       </NavLink>
       <button
         className="hamburger"
@@ -33,32 +29,36 @@ function Nav() {
       >
         <ul>
           <li>
-            <NavLink to="/" style={getActiveStyle}>
+            <NavLink to="/" onClick={() => setIsNavExpanded(false)}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" style={getActiveStyle}>
+            <NavLink to="/about" onClick={() => setIsNavExpanded(false)}>
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/menu" style={getActiveStyle}>
+            <NavLink to="/menu" onClick={() => setIsNavExpanded(false)}>
               Menu
             </NavLink>
           </li>
           <li>
-            <NavHashLink smooth to="/booking#booking" style={getActiveStyle}>
+            <NavHashLink
+              smooth
+              to="/booking#booking"
+              onClick={() => setIsNavExpanded(false)}
+            >
               Reservations
             </NavHashLink>
           </li>
           <li>
-            <NavLink to="/order-online" style={getActiveStyle}>
+            <NavLink to="/order-online" onClick={() => setIsNavExpanded(false)}>
               Order online
             </NavLink>
           </li>
           <li>
-            <NavLink to="/login" style={getActiveStyle}>
+            <NavLink to="/login" onClick={() => setIsNavExpanded(false)}>
               Login
             </NavLink>
           </li>

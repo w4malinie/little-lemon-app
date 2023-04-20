@@ -1,5 +1,5 @@
 import React from "react";
-import delivery from "../assets/Cycling.svg";
+import delivery from "../../assets/Cycling.svg";
 
 function CallToDelivery() {
   return (

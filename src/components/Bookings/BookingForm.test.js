@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, getByText } from "@testing-library/react";
 import BookingForm from "./BookingForm";
-import { initializeTimes } from "../utils/times";
-import { updateTimes } from "../utils/times";
+import { initializeTimes } from "./utils/times";
+import { updateTimes } from "./utils/times";
 import { BrowserRouter } from "react-router-dom";
 
 let windowSpy;

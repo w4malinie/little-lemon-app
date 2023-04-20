@@ -11,7 +11,7 @@ function Footer() {
         <div className="footer-container ">
           <div className="footer-logo">
             <Link to="/">
-              <img src={logo} alt="Little Lemon logo" />
+              <img src={logo} alt="Little Lemon logo" aria-label="On Click" />
             </Link>
           </div>
           <div className="footer-section-wrapper">
@@ -34,7 +34,7 @@ function Footer() {
             </div>
             <div className="footer-section">
               <h5>Links</h5>
-              <ul>
+              <ul role="menu" aria-label="secondary">
                 <li>
                   <Link to="/">Home</Link>
                 </li>
@@ -60,7 +60,7 @@ function Footer() {
             </div>
             <div className="footer-section">
               <h5>Follow us</h5>
-              <ul>
+              <ul role="social media menu" aria-label="social media">
                 <li>
                   <Link to="https://www.facebook.com">Facebook</Link>
                 </li>

@@ -1,5 +1,4 @@
 import style from "./confirmation-page.css";
-
 import React from "react";
 
 export default function ConfirmedBooking() {

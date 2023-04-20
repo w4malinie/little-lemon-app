@@ -1,5 +1,5 @@
 import React from "react";
-import CallToMenu from "./CallToMenu";
+import CallToMenu from "./Buttons/CallToMenu";
 import { Link } from "react-router-dom";
 import styles from "./specials.css";
 import Special from "./Special";

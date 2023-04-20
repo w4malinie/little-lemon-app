@@ -1,5 +1,5 @@
 import React from "react";
-import CallToAction from "./CallToAction";
+import CallToAction from "./Buttons/CallToAction";
 import { Link } from "react-router-dom";
 import heroIMG from "../assets/restaurant-chefB.jpg";
 import { HashLink } from "react-router-hash-link";
