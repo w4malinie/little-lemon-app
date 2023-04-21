@@ -4,11 +4,11 @@ This is my React.js app with a table booking functionality for a fictional resta
 
 The app was the final project on the [Meta Front-End Developer course](https://www.coursera.org/learn/meta-front-end-developer-capstone)
 
-UX/UI Design
+### UX/UI Design
 
 I wireframed and designed a mockup for the homepage based on the given requirements and the existing design system. Then, I coded a semantically accessible page structure with a responsive layout using custom CSS.
 
-Development
+### Development
 
 All the fun began with React itself. I created multiple components and used hooks (useState, useReducer, useEffect etc.), routes, and additional npm packages. The table booking form uses the mock API to check available hours for the chosen date. The booking form has custom client-side validation. After making the reservation, the app takes the user to the confirmation page. The booking system consists of several unit tests.
 
