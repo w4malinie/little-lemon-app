@@ -37,4 +37,4 @@ Booking page with user side validation and error
 ![Screenshot of the booking page with  user side validation and error](/src/screenshots/little-lemon9.png)
 
 Confirmation page
-![Screenshot of the confirmation page](/src/screenshots/little-lemon9.png)
+![Screenshot of the confirmation page](/src/screenshots/confirm.png)
