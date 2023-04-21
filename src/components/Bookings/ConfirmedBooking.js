@@ -1,5 +1,6 @@
 import style from "./confirmation-page.css";
 import React from "react";
+import { HashLink } from "react-router-hash-link";
 
 export default function ConfirmedBooking() {
   return (
@@ -19,6 +20,11 @@ export default function ConfirmedBooking() {
               little@lemon.com
             </a>
           </p>
+          <HashLink smooth to="/#logo">
+            <p className="back" aria-label="link">
+              Go back to the homepage
+            </p>
+          </HashLink>
         </div>
       </div>
     </div>

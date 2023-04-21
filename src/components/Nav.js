@@ -12,7 +12,12 @@ function Nav() {
   return (
     <nav className="navigation container" aria-label="primary">
       <NavLink to="/">
-        <img src={logo} alt="Little Lemon logo" aria-label="On Click" />
+        <img
+          src={logo}
+          alt="Little Lemon logo"
+          aria-label="On Click"
+          id="logo"
+        />
       </NavLink>
       <button
         className="hamburger"

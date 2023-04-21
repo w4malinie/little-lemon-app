@@ -18,6 +18,10 @@
     padding: 8px;
 }
 
+.back {
+    text-decoration: underline;
+}
+
 
 @media (max-width: 480px) {
 
