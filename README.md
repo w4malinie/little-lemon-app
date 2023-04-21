@@ -32,7 +32,7 @@ book a table page with booking form and disabled button
 
 Booking form with active time selector
 
-![Screenshot of the booking form with active time selector](/src/screenshots/little-lemon7.png)
+![Screenshot of the booking form with active time selector](/src/screenshots/time.png)
 
 Booking page with user side validation and error
 
