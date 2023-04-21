@@ -43,6 +43,10 @@ function BookingForm({
 
     setWasSubmitted(true);
 
+    if (!guests.value || Number(guests.value) === 0) {
+      return;
+    }
+
     const result = submitForm({ date, time, guests, occasion });
     if (result) {
       clearForm();
@@ -74,7 +78,6 @@ function BookingForm({
           setDate(e.target.value);
           dispatch(e.target.value);
         }}
-        required
         aria-label="Choose a date"
         autoFocus
         aria-required="true"
@@ -88,7 +91,6 @@ function BookingForm({
         onChange={(e) => {
           setTime(e.target.value);
         }}
-        required
         disabled={!date}
         aria-label="Select time"
         aria-required="true"
@@ -106,15 +108,12 @@ function BookingForm({
       <input
         type="number"
         placeholder={0}
-        min={1}
-        max={10}
         id="guests"
         value={guests.value}
+        data-testid="guests-input"
         onChange={(e) => {
           setGuests({ value: e.target.value });
         }}
-        required
-        minLength="1"
         aria-label="Number of guests"
         aria-required="true"
       />

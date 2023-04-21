@@ -37,16 +37,6 @@ test("Renders the BookingForm heading", () => {
 });
 
 describe("BookingForm submit", () => {
-  it("shoud call submitForm function", () => {
-    const submitForm = jest.fn();
-    const { getByTestId } = render(
-      <BrowserRouter>
-        <BookingForm submitForm={submitForm} />
-      </BrowserRouter>
-    );
-    fireEvent.submit(getByTestId("form"));
-    expect(submitForm).toHaveBeenCalled();
-  });
   it("should be disabled on entry", () => {
     const { getByTestId } = render(
       <BrowserRouter>
@@ -61,22 +51,31 @@ describe("BookingForm submit", () => {
   });
   it("should be enabled after filling the form fields", () => {
     const dispachSpy = jest.fn();
+    const submitForm = jest.fn();
     const { getByTestId } = render(
       <BrowserRouter>
-        <BookingForm submitForm={() => {}} dispatch={dispachSpy} />
+        <BookingForm submitForm={submitForm} dispatch={dispachSpy} />
       </BrowserRouter>
     );
 
     const dateInput = screen.getByTestId("res-date");
+    const guestsInput = screen.getByTestId("guests-input");
     const submitButton = screen.getByText("Make reservation");
     const timeInput = screen.getByText("Make reservation");
 
     fireEvent.mouseDown(dateInput);
     fireEvent.change(dateInput, { target: { value: "2023-04-03" } });
 
+    fireEvent.mouseDown(guestsInput);
+    fireEvent.change(guestsInput, { target: { value: "2" } });
+
     expect(timeInput).toBeEnabled();
     expect(submitButton).toBeEnabled();
+
+    fireEvent.submit(getByTestId("form"));
+
     expect(dispachSpy).toHaveBeenCalled();
+    expect(submitForm).toHaveBeenCalled();
   });
 
   it("should prompt the user about missing guests field", () => {
