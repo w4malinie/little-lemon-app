@@ -31,10 +31,13 @@ book a table page with booking form and disabled button
 ![Screenshot of the book a table page with booking form and disabled button](/src/screenshots/little-lemon6.png)
 
 Booking form with active time selector
+
 ![Screenshot of the booking form with active time selector](/src/screenshots/little-lemon7.png)
 
 Booking page with user side validation and error
+
 ![Screenshot of the booking page with  user side validation and error](/src/screenshots/little-lemon9.png)
 
 Confirmation page
+
 ![Screenshot of the confirmation page](/src/screenshots/confirm.png)
