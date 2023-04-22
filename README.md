@@ -1,8 +1,8 @@
 # Meta Front-End Developer Professional Certificate Capstone Project: Booking a table on the Little Lemon website
 
-This is my React.js app with a table booking functionality for a fictional restaurant called Little Lemon.
+\*This is my React.js app with a table booking functionality for a fictional restaurant called Little Lemon.
 
-The app was the final project on the [Meta Front-End Developer course](https://www.coursera.org/learn/meta-front-end-developer-capstone)
+The app was the final project on the [Meta Front-End Developer course](https://www.coursera.org/learn/meta-front-end-developer-capstone)\*
 
 ### UX/UI Design
 
