@@ -1,9 +1,14 @@
 import React from "react";
 import BookingForm from "./BookingForm";
+import { motion as m } from "framer-motion";
 
 function BookingPage({ setTime, time, availableTimes, dispatch, submitForm }) {
   return (
-    <>
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2 }}
+    >
       <div className="container">
         <div className="booking-container">
           <div className="booking-text" id="booking">
@@ -38,7 +43,7 @@ function BookingPage({ setTime, time, availableTimes, dispatch, submitForm }) {
           />
         </div>
       </div>
-    </>
+    </m.div>
   );
 }
 

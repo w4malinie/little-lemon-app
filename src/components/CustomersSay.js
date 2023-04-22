@@ -1,4 +1,5 @@
 import React from "react";
+import { motion as m } from "framer-motion";
 import styles from "./customersay.css";
 import restaurant from "../assets/restaurant.jpg";
 import CustomerSayTestimonial from "./CustomerSayTestimonial";
@@ -17,14 +18,21 @@ function CustomersSay() {
     );
   });
   return (
-    <div className="customers-say-container">
-      <div className="container">
-        <div className="customers-say">
-          <h4>Testimonials</h4>
-          <div className="testimonials">{testimonialElements}</div>
+    <m.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.75 }}
+    >
+      <div className="customers-say-container">
+        <div className="container">
+          <div className="customers-say">
+            <h4>Testimonials</h4>
+            <div className="testimonials">{testimonialElements}</div>
+          </div>
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }
 
